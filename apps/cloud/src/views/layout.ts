@@ -14,6 +14,7 @@ export function renderLayout(title: string, body: string): string {
   <link rel="stylesheet" href="/css/layout.css">
   <link rel="stylesheet" href="/css/cards.css">
   <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
   <nav x-data="{ mobileOpen: false }">

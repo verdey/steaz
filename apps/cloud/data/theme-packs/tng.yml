@@ -1,0 +1,135 @@
+# Star Trek: The Next Generation — Theme Pack
+# Schema version 1.0
+# Values are real enough to display, detailed enough to be annoying-until-deepdived.
+
+meta:
+  id: tng
+  version: "1.0.0"
+  name: "Star Trek: The Next Generation"
+  shortName: "TNG"
+  tagline: "Make it so."
+  description: "The crew of the USS Enterprise-D. Each character maps to a council archetype."
+  franchise: "Star Trek"
+  series: "The Next Generation"
+  status: "scaffold"
+
+palette:
+  primary: "#1a3a5c"
+  accent: "#c8a951"
+  surface: "#0d1f35"
+  text: "#e8e4d9"
+  highlight: "#ff6b35"
+  glow: "#4fc3f7"
+
+characters:
+  - id: picard
+    name: "Jean-Luc Picard"
+    rank: "Captain"
+    role: "Commanding Officer"
+    skillResonance: "oracle"
+    attributes:
+      diplomacy: 98
+      command: 95
+      wisdom: 97
+      action: 72
+      empathy: 78
+    catchphrase: "Make it so."
+    bio: "The finest captain in Starfleet. Commands with moral clarity."
+    communityRating: null
+
+  - id: laforge
+    name: "Geordi La Forge"
+    rank: "Lieutenant Commander"
+    role: "Chief Engineer"
+    skillResonance: "forge"
+    attributes:
+      engineering: 99
+      problemSolving: 97
+      craft: 96
+      command: 60
+      empathy: 82
+    catchphrase: "Give me a minute."
+    bio: "Sees problems others can't perceive. Never says it can't be done."
+    communityRating: null
+
+  - id: data
+    name: "Lieutenant Commander Data"
+    rank: "Lieutenant Commander"
+    role: "Operations Officer"
+    skillResonance: "reaper"
+    attributes:
+      precision: 100
+      logic: 100
+      creativity: 78
+      empathy: 45
+      reliability: 100
+    catchphrase: "Intriguing."
+    bio: "Tireless precision. Perfect fidelity."
+    communityRating: null
+
+  - id: troi
+    name: "Counselor Deanna Troi"
+    rank: "Commander"
+    role: "Ship's Counselor"
+    skillResonance: "jin"
+    attributes:
+      empathy: 100
+      intuition: 98
+      insight: 95
+      command: 68
+      warmth: 97
+    catchphrase: "I sense something..."
+    bio: "The empath of the bridge. Most important presence, most overlooked."
+    communityRating: null
+
+  - id: worf
+    name: "Lieutenant Worf"
+    rank: "Lieutenant"
+    role: "Chief of Security"
+    skillResonance: "worf"
+    attributes:
+      security: 99
+      honor: 100
+      directness: 98
+      diplomacy: 55
+      strength: 97
+    catchphrase: "Today is a good day to die."
+    bio: "Takes care of business. That mullet was earned in battle."
+    communityRating: null
+
+  - id: crusher
+    name: "Dr. Beverly Crusher"
+    rank: "Commander"
+    role: "Chief Medical Officer"
+    skillResonance: "doc"
+    attributes:
+      healing: 99
+      diagnosis: 97
+      warmth: 95
+      command: 74
+      precision: 89
+    catchphrase: "Let me take a look."
+    bio: "Heals with the care a doctor brings to a patient."
+    communityRating: null
+
+  - id: riker
+    name: "Commander William T. Riker"
+    rank: "Commander"
+    role: "First Officer"
+    skillResonance: null
+    attributes:
+      command: 92
+      charm: 95
+      action: 90
+      diplomacy: 85
+      jazz: 88
+    catchphrase: "Red alert."
+    bio: "The one who executes. Also: jazz."
+    communityRating: null
+
+schema:
+  version: "1.0"
+  attributeRange: [0, 100]
+  communityRatingRange: [0, 5]
+  requiredCharacterFields: [id, name, rank, role, attributes]
+  optionalCharacterFields: [skillResonance, catchphrase, bio, communityRating]
