@@ -16,19 +16,20 @@ Steaz is a floating terminal interface that ingests any text-based signal and re
 
 ## Packages
 
-| Package | Description |
-|---------|-------------|
-| `@steaz/core` | The terminal engine — scroll, playback, zones, config, Spirit/God Mode |
+| Package | Path | Description |
+|---------|------|-------------|
+| `@steaz/core` | `packages/core/` | The terminal engine — scroll, playback, zones, config, Spirit/God Mode |
+| `@steaz/cloud` | `apps/cloud/` | steaz.cloud web platform — Skills Gallery, TNG Theme Pack, story & affordances |
 
 ## Session Briefs
 
-All session briefs live in the `verdey_com` project:
-`/Users/verdey/code/verdey-projects/verdey_com/docs/sessions/dreamscapes/`
+Session briefs live in this repo: `docs/sessions/_*.md` (git-ignored, `_`-prefixed).
 
-- **Session 1** (`_001-genesis-void.md`): Repo scaffold + Dreamscapes infrastructure
-- **Session 2** (`_002-steaz-awakens.md`): Full terminal engine — zones, typewriter, directives
-- **Session 3** (`_003-*`): Producer Panel, Spirit/God Mode, media
-- **Session 4** (`_004-*`): PWA & launch
+- **Session 0** — Monorepo scaffold
+- **Session 1** — Cloud Genesis (Hono app shell, routes, CSS tokens)
+- **Session 2** — Skills Gallery (9 trading cards, manifest pipeline, 3D flip)
+- **Session 3** — Finishing Touches (landing, story, TNG theme pack, affordances)
+- **Session 4** — Structural Remediation (CLAUDE.md, README, .mcp.json, .gitignore)
 
 ## Master Plan
 
@@ -38,3 +39,4 @@ All session briefs live in the `verdey_com` project:
 
 - `steaz.io` — base entrypoint (acquired)
 - `steaz.us` — alias (acquired)
+- `steaz.cloud` — web platform (TBD)

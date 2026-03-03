@@ -1,0 +1,10 @@
+/* ── Card Animations ─────────────────────────────────── */
+
+@keyframes stat-fill {
+  from { width: 0; }
+  to { width: var(--stat-width); }
+}
+
+.skill-card__stat-bar--visible {
+  animation: stat-fill 0.8s ease-out forwards;
+}

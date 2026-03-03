@@ -1,0 +1,32 @@
+:root {
+  /* Steaz palette (inherited from dreamscapes) */
+  --void: #0a0a0f;
+  --terminal-green: #00ff41;
+  --tron-cyan: #00d4ff;
+  --tron-orange: #ff6600;
+  --nebula-purple: #7c3aed;
+  --star-white: #e0e0ff;
+
+  /* Cloud-specific additions */
+  --cloud-gold: #c8a951;
+  --cloud-rose: #f472b6;
+  --cloud-surface: rgba(15, 15, 25, 0.85);
+  --cloud-border: rgba(0, 212, 255, 0.12);
+  --cloud-hover: rgba(0, 212, 255, 0.06);
+
+  /* Typography */
+  --font-display: 'Press Start 2P', cursive;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-arcade: 'VT323', monospace;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+
+  /* Layout */
+  --max-width: 1200px;
+  --nav-height: 60px;
+}
