@@ -12,6 +12,8 @@ export function renderLayout(title: string, body: string): string {
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/cards.css">
+  <link rel="stylesheet" href="/css/animations.css">
 </head>
 <body>
   <nav x-data="{ mobileOpen: false }">
