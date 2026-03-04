@@ -43,26 +43,35 @@ export function renderStory(): string {
 
     <section class="story__section">
       <h2 class="story__heading">The Product Family</h2>
+      <p class="story__text">Navigate the Steaz-i-verse with the cosmic compass &mdash; the solar system in the top left.</p>
       <div class="story__family">
         <div class="story__family-item">
-          <span class="story__family-label">Steaz Core</span>
-          <span class="story__family-desc">The engine. The thing under the hood. Coming soon.</span>
+          <span class="story__family-label">steaz.io</span>
+          <span class="story__family-desc">The canonical vanilla experience.</span>
+        </div>
+        <div class="story__family-item">
+          <span class="story__family-label">steaz.us</span>
+          <span class="story__family-desc">First steaz pack &mdash; a themed, curated lens on steaz.</span>
         </div>
         <div class="story__family-item">
           <span class="story__family-label">steaz.cloud</span>
-          <span class="story__family-desc">You're here. The entry point. The front door.</span>
+          <span class="story__family-desc">You're here. The front door and marketplace.</span>
+        </div>
+        <div class="story__family-item">
+          <span class="story__family-label">steaz.life</span>
+          <span class="story__family-desc">Use case gallery &mdash; community-curated experiences.</span>
+        </div>
+        <div class="story__family-item">
+          <span class="story__family-label">steaz.uk</span>
+          <span class="story__family-desc">UK gallery + VIP invitations.</span>
+        </div>
+        <div class="story__family-item">
+          <span class="story__family-label">steaz.link</span>
+          <span class="story__family-desc">Navigation schemes &mdash; explore how Steaz connects.</span>
         </div>
         <div class="story__family-item">
           <span class="story__family-label">Dreamscapes</span>
-          <span class="story__family-desc">The flagship client. The chrysalis. Where it all comes together.</span>
-        </div>
-        <div class="story__family-item">
-          <span class="story__family-label">Theme Packs</span>
-          <span class="story__family-desc">Tune your experience. Dress the interface in the story that fits you.</span>
-        </div>
-        <div class="story__family-item">
-          <span class="story__family-label">Affordances</span>
-          <span class="story__family-desc">Collectible upgrades along the journey. Community-rated. Transparent.</span>
+          <span class="story__family-desc">The flagship client. Where it all began.</span>
         </div>
       </div>
     </section>

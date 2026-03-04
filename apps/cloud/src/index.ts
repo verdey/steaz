@@ -23,6 +23,10 @@ app.use('*', async (c, next) => {
 
 app.use('/css/*', serveStatic({ root: './public' }));
 app.use('/vendor/*', serveStatic({ root: './public' }));
+app.use('/steaz/*', serveStatic({
+  root: '../../packages/core/browser',
+  rewriteRequestPath: (path) => path.replace(/^\/steaz/, ''),
+}));
 
 // ─── Routes ──────────────────────────────────────────────────────────────────
 
