@@ -27,3 +27,15 @@ export interface VoidConfig {
   nebulaIntensity: number;
   parallaxDepth: number;
 }
+
+export interface HoloNavDomain {
+  id: string;
+  label: string;
+  url: string;
+  color: string;
+}
+
+export interface HoloNavConfig {
+  current: string;
+  domains: HoloNavDomain[];
+}
