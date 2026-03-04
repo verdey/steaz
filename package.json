@@ -1,5 +1,8 @@
 {
   "name": "steaz",
   "private": true,
-  "workspaces": ["packages/*", "apps/*"]
+  "workspaces": ["packages/*", "apps/*"],
+  "scripts": {
+    "start": "cd apps/cloud && bun src/index.ts"
+  }
 }

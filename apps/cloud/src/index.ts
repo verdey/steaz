@@ -1,5 +1,6 @@
 import { Hono } from 'hono';
 import { serveStatic } from 'hono/bun';
+import { resolve } from 'path';
 import { homeRoutes } from './routes/home';
 import { skillsRoutes } from './routes/skills';
 import { affordancesRoutes } from './routes/affordances';
@@ -23,6 +24,10 @@ app.use('*', async (c, next) => {
 
 app.use('/css/*', serveStatic({ root: './public' }));
 app.use('/vendor/*', serveStatic({ root: './public' }));
+app.use('/steaz/*', serveStatic({
+  root: resolve(import.meta.dir, '../../../packages/core/browser'),
+  rewriteRequestPath: (path) => path.replace(/^\/steaz/, ''),
+}));
 
 // ─── Routes ──────────────────────────────────────────────────────────────────
 

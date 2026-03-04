@@ -20,6 +20,7 @@ Steaz is a floating terminal interface that ingests any text-based signal and re
 |---------|------|-------------|
 | `@steaz/core` | `packages/core/` | The terminal engine — scroll, playback, zones, config, Spirit/God Mode |
 | `@steaz/cloud` | `apps/cloud/` | steaz.cloud web platform — Skills Gallery, TNG Theme Pack, story & affordances |
+| `@steaz/demo` | `apps/demo/` | @steaz/core proof app — Hono on port 3002, 4 content blocks |
 
 ## Session Briefs
 
@@ -30,6 +31,9 @@ Session briefs live in this repo: `docs/sessions/_*.md` (git-ignored, `_`-prefix
 - **Session 2** — Skills Gallery (9 trading cards, manifest pipeline, 3D flip)
 - **Session 3** — Finishing Touches (landing, story, TNG theme pack, affordances)
 - **Session 4** — Structural Remediation (CLAUDE.md, README, .mcp.json, .gitignore)
+- **Session 5** — Railway Deployment (live at steaz-cloud-production.up.railway.app)
+- **Session 6** — Truth-chain remediation (spec pointer, design principles promotion)
+- **Session 7** — @steaz/core Extraction (engine from Dreamscapes, demo proof app)
 
 ## Master Plan
 
@@ -38,5 +42,5 @@ Session briefs live in this repo: `docs/sessions/_*.md` (git-ignored, `_`-prefix
 ## Domains
 
 - `steaz.io` — base entrypoint (acquired)
-- `steaz.us` — alias (acquired)
-- `steaz.cloud` — web platform (TBD)
+- `steaz.us` — first steaz pack (acquired)
+- `steaz.cloud` — web platform (active, Railway)

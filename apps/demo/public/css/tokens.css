@@ -1,0 +1,29 @@
+/* @steaz/demo — Design Tokens
+ * Required custom properties for @steaz/core CSS.
+ * 16-bit Tron palette — same as Dreamscapes origin.
+ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; overscroll-behavior: none; }
+body {
+  background: var(--void);
+  color: var(--star-white);
+  font-family: 'JetBrains Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+}
+
+:root {
+  --void:           #0a0a0f;
+  --void-surface:   #0f1a14;
+  --terminal-green: #00ff41;
+  --terminal-dim:   #3a7c4a;
+  --tron-cyan:      #00d4ff;
+  --tron-orange:    #ff6600;
+  --nebula-purple:  #7c3aed;
+  --star-white:     #e0e0ff;
+  --star-warm:      #ffd4a0;
+  --steaz-text:     var(--terminal-green);
+  --steaz-opacity:  0.78;
+  --steaz-glow:     0.12;
+  --steaz-font-scale: 1;
+}

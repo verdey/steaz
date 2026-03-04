@@ -1,0 +1,14 @@
+{
+  "name": "@steaz/demo",
+  "version": "0.0.1",
+  "module": "src/index.ts",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "start": "bun src/index.ts"
+  },
+  "dependencies": {
+    "hono": "^4"
+  }
+}
