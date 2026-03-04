@@ -93,8 +93,8 @@ export function setCurrentDomain(id) {
 function injectStyles() {
   if (document.getElementById('holo-nav-styles')) return;
 
-  const fontDisplay = 'var(--font-display, "Press Start 2P", cursive)';
-  const fontArcade = 'var(--font-arcade, "VT323", monospace)';
+  const fontDisplay = 'var(--font-display, cursive)';
+  const fontArcade = 'var(--font-arcade, monospace)';
 
   let keyframes = '';
   for (let i = 0; i < 6; i++) {
