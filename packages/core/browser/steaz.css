@@ -1,0 +1,330 @@
+/* @steaz/core — Terminal Interface Styles
+ *
+ * Required CSS custom properties (consuming apps must define in :root):
+ *   --void, --void-surface, --terminal-green, --terminal-dim,
+ *   --tron-cyan, --tron-orange, --nebula-purple,
+ *   --star-white, --star-warm,
+ *   --steaz-text, --steaz-opacity, --steaz-glow, --steaz-font-scale
+ *
+ * This file does NOT include reset or :root definitions.
+ * Each consuming app provides its own tokens and reset.
+ */
+
+/* ========================================
+   VOID CANVAS
+   ======================================== */
+#void {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* ========================================
+   APP CONTAINER
+   ======================================== */
+#app {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); border: 0;
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  #void { animation: none; }
+  .steaz__prompt { animation: none; opacity: 1; }
+  .steaz__cursor-blink { animation: none; opacity: 1; }
+  .steaz__content-player { scroll-behavior: auto; }
+}
+
+/* ========================================
+   STEAZ — FLOATING TERMINAL INTERFACE
+   Two-zone: Content Player (top) + Command Input (bottom)
+   Minimal chrome: glow/border, no title bar
+   ======================================== */
+
+/* The terminal "window" — minimal chrome, holographic glow */
+#steaz {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 700px);
+  height: 88vh;
+  display: flex;
+  flex-direction: column;
+  background: rgba(10, 15, 12, var(--steaz-opacity));
+  border: 1px solid rgba(0, 255, 65, var(--steaz-glow));
+  box-shadow:
+    0 0 calc(40px * var(--steaz-glow) / 0.12) rgba(0, 255, 65, calc(0.04 * var(--steaz-glow) / 0.12)),
+    inset 0 0 30px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 10;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* ========================================
+   ZONE 1 — Content Player
+   ======================================== */
+.steaz__content-player {
+  flex: 1;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 2rem 1.5rem 2rem;
+
+  /* Gradient fade — content emerges from and dissolves into void */
+  mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+/* Hide scrollbar — the terminal doesn't show scrollbars */
+.steaz__content-player::-webkit-scrollbar { display: none; }
+.steaz__content-player { scrollbar-width: none; }
+
+/* ========================================
+   ZONE 2 — Command Input
+   ======================================== */
+.steaz__command-zone {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-top: 1px solid rgba(0, 255, 65, 0.08);
+  background: rgba(10, 12, 10, 0.5);
+}
+
+.steaz__prompt {
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  color: var(--terminal-green);
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+  animation: steaz-blink 1s step-end infinite;
+  flex-shrink: 0;
+}
+
+.steaz__command-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+  color: var(--steaz-text);
+  caret-color: var(--terminal-green);
+  letter-spacing: 0.05em;
+}
+
+.steaz__command-input::placeholder {
+  color: var(--terminal-dim);
+  opacity: 0.5;
+}
+
+/* ========================================
+   CONTENT BLOCKS
+   ======================================== */
+.steaz-block {
+  margin-bottom: 4rem;
+  color: var(--steaz-text);
+}
+
+.steaz-block__separator {
+  color: var(--terminal-dim);
+  font-family: 'VT323', monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.steaz-block__title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: clamp(0.65rem, 1.8vw, 0.85rem);
+  color: var(--tron-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin: 1rem 0 0.5rem;
+  line-height: 1.6;
+}
+
+.steaz-block__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.steaz-block__date {
+  font-family: 'VT323', monospace;
+  font-size: 1rem;
+  color: var(--terminal-dim);
+}
+
+.steaz-block__tag {
+  font-family: 'VT323', monospace;
+  font-size: 0.85rem;
+  color: var(--tron-orange);
+}
+
+.steaz-block__body {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.8rem, 2.2vw, 1rem);
+  line-height: 1.9;
+  color: var(--steaz-text);
+  white-space: pre-wrap;
+}
+
+/* ========================================
+   COMMAND RESPONSE STYLES
+   ======================================== */
+.steaz-response {
+  font-family: 'VT323', monospace;
+  font-size: 1rem;
+  color: var(--terminal-dim);
+  padding: 1rem 0;
+}
+
+.steaz-list__item {
+  font-family: 'VT323', monospace;
+  font-size: 1rem;
+  color: var(--steaz-text);
+  padding: 0.25rem 0;
+  cursor: pointer;
+}
+
+.steaz-list__item:hover {
+  color: var(--tron-cyan);
+}
+
+.steaz-list__date {
+  color: var(--terminal-dim);
+  margin-left: 0.5rem;
+}
+
+/* ========================================
+   CURSOR BLINK ANIMATION
+   ======================================== */
+.steaz__cursor-blink {
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  color: var(--terminal-green);
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+  animation: steaz-blink 1s step-end infinite;
+}
+
+@keyframes steaz-blink {
+  50% { opacity: 0; }
+}
+
+/* ========================================
+   PLAYBACK CONTROLS (floating)
+   ======================================== */
+.steaz__controls {
+  position: fixed;
+  bottom: max(env(safe-area-inset-bottom, 0px), 1.5rem);
+  right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.steaz__btn {
+  background: rgba(10, 15, 12, 0.7);
+  border: 1px solid rgba(0, 255, 65, 0.15);
+  color: var(--terminal-dim);
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.steaz__btn:hover,
+.steaz__btn:focus-visible {
+  color: var(--terminal-green);
+  border-color: rgba(0, 255, 65, 0.4);
+  box-shadow: 0 0 12px rgba(0, 255, 65, 0.15);
+  outline: none;
+}
+
+/* Gentle pulse after 30s of pause — invites, doesn't force */
+.steaz__btn--play.pulsing {
+  animation: steaz-invite-pulse 2s ease-in-out infinite;
+}
+
+@keyframes steaz-invite-pulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(0, 255, 65, 0); }
+  50% { box-shadow: 0 0 15px rgba(0, 255, 65, 0.2); }
+}
+
+/* ========================================
+   META DISPLAY (floating top)
+   ======================================== */
+.steaz__meta {
+  position: fixed;
+  top: max(env(safe-area-inset-top, 0px), 1rem);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.steaz__meta.visible { opacity: 1; }
+
+.steaz__meta-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: clamp(0.5rem, 1.5vw, 0.7rem);
+  color: var(--tron-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.steaz__meta-date {
+  font-family: 'VT323', monospace;
+  font-size: 0.85rem;
+  color: var(--terminal-dim);
+}
+
+/* ========================================
+   LOADING & ERROR STATES
+   ======================================== */
+.steaz__loading {
+  text-align: center;
+  padding-top: 40vh;
+}
+
+.steaz__loading-text {
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+  color: var(--terminal-dim);
+  letter-spacing: 0.1em;
+}
