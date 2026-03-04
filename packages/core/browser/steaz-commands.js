@@ -69,7 +69,10 @@ function showList() {
   }
 
   fetch(commandConfig.listEndpoint)
-    .then(r => r.text())
+    .then(r => {
+      if (!r.ok) throw new Error(`${r.status}`);
+      return r.text();
+    })
     .then(html => {
       player.innerHTML = `
         <div class="steaz-response" style="padding:2rem 0">
@@ -77,7 +80,8 @@ function showList() {
           ${html}
           <div style="margin-top:1.5rem;color:var(--terminal-dim)">type <span style="color:var(--tron-cyan)">goto &lt;title&gt;</span> to navigate, or <span style="color:var(--tron-cyan)">clear</span> to return</div>
         </div>`;
-    });
+    })
+    .catch(() => showInPlayer('connection error — try again'));
 }
 
 function gotoBlock(args) {
@@ -143,7 +147,10 @@ function searchBlocks(args) {
   }
 
   fetch(`${commandConfig.searchEndpoint}?q=${encodeURIComponent(args)}`)
-    .then(r => r.text())
+    .then(r => {
+      if (!r.ok) throw new Error(`${r.status}`);
+      return r.text();
+    })
     .then(html => {
       player.innerHTML = `
         <div class="steaz-response" style="padding:2rem 0">
@@ -151,7 +158,8 @@ function searchBlocks(args) {
           ${html}
           <div style="margin-top:1.5rem;color:var(--terminal-dim)">type <span style="color:var(--tron-cyan)">clear</span> to return to ${commandConfig.contentLabel}</div>
         </div>`;
-    });
+    })
+    .catch(() => showInPlayer('connection error — try again'));
 }
 
 function clearOutput() {

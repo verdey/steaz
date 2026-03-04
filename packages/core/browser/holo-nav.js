@@ -310,7 +310,6 @@ ${keyframes}
 
 function buildSVG(domains) {
   const ns = 'http://www.w3.org/2000/svg';
-  const xlink = 'http://www.w3.org/1999/xlink';
 
   const svg = document.createElementNS(ns, 'svg');
   svg.setAttribute('id', 'holo-nav__solar-system');
@@ -380,7 +379,6 @@ function buildSVG(domains) {
     planetGroup.setAttribute('class', 'holo-planet-group');
 
     const link = document.createElementNS(ns, 'a');
-    link.setAttributeNS(xlink, 'href', domain.url);
     link.setAttribute('href', domain.url);
     link.setAttribute('aria-label', `Navigate to ${domain.label}`);
     link.addEventListener('click', (e) => {

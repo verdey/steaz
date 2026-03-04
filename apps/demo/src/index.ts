@@ -16,6 +16,8 @@ app.get('/steaz/*', async (c) => {
   const filePath = c.req.path.replace('/steaz/', '');
   const fullPath = resolve(coreBrowser, filePath);
 
+  if (!fullPath.startsWith(coreBrowser)) return c.notFound();
+
   const file = Bun.file(fullPath);
   if (await file.exists()) {
     const ext = filePath.split('.').pop();
